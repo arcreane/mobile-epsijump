@@ -22,18 +22,16 @@ public class RiderCharacter<GameSurface> extends org.o7planning.android2dgame.Ga
 
     // Velocity of game character (pixel/millisecond)
     public static final float VELOCITY = 0.1f;
-
     private int movingVectorX = 10;
     private int movingVectorY = 5;
 
     private long lastDrawNanoTime =-1;
 
-    private GameSurface gameSurface;
+    private org.o7planning.android2dgame.GameSurface gameSurface;
 
     public RiderCharacter(GameSurface gameSurface, Bitmap image, int x, int y) {
         super(image, 4, 3, x, y);
 
-        this.gameSurface= gameSurface;
 
         this.topToBottoms = new Bitmap[colCount]; // 3
         this.rightToLefts = new Bitmap[colCount]; // 3

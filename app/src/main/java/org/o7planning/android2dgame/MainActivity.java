@@ -1,10 +1,10 @@
 package org.o7planning.android2dgame;
 
 import android.app.Activity;
-
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+
 public class MainActivity extends Activity {
 
     @Override
@@ -18,5 +18,7 @@ public class MainActivity extends Activity {
         // Set No Title
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
+        this.setContentView(new GameSurface(this));
     }
+
 }
