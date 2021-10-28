@@ -23,14 +23,14 @@ public class RiderCharacter<GameSurface> extends org.o7planning.android2dgame.Ga
     // Velocity of game character (pixel/millisecond)
     public static final float VELOCITY = 0.1f;
     private int movingVectorX = 10;
-    private int movingVectorY = 5;
+    private int movingVectorY = 0;
 
     private long lastDrawNanoTime =-1;
 
     private org.o7planning.android2dgame.GameSurface gameSurface;
 
     public RiderCharacter(GameSurface gameSurface, Bitmap image, int x, int y) {
-        super(image, 4, 3, x, y);
+        super(image, 4, 4, x, y);
 
 
         this.topToBottoms = new Bitmap[colCount]; // 3
@@ -41,7 +41,7 @@ public class RiderCharacter<GameSurface> extends org.o7planning.android2dgame.Ga
         for(int col = 0; col< this.colCount; col++ ) {
             this.topToBottoms[col] = this.createSubImageAt(ROW_TOP_TO_BOTTOM, col);
             this.rightToLefts[col]  = this.createSubImageAt(ROW_RIGHT_TO_LEFT, col);
-            this.leftToRights[col] = this.createSubImageAt(ROW_LEFT_TO_RIGHT, col);
+            this.leftToRights[col] = this.createSubImageAt(ROW_LEFT_TO_RIGHT, 1);
             this.bottomToTops[col]  = this.createSubImageAt(ROW_BOTTOM_TO_TOP, col);
         }
     }
