@@ -10,7 +10,7 @@ import android.view.SurfaceView;
 public class GameSurface extends SurfaceView implements SurfaceHolder.Callback {
 
     private GameThread gameThread;
-    private RiderCharacter Rider1;
+    private RiderCharacter chibi1;
 
     public GameSurface(Context context)  {
         super(context);
@@ -23,21 +23,21 @@ public class GameSurface extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public void update()  {
-        this.Rider1.update();
+        this.chibi1.update();
     }
 
     @Override
     public void draw(Canvas canvas)  {
         super.draw(canvas);
 
-        this.Rider1.draw(canvas);
+        this.chibi1.draw(canvas);
     }
 
     // Implements method of SurfaceHolder.Callback
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        Bitmap riderBitmap1 = BitmapFactory.decodeResource(this.getResources(),R.drawable.riderzz2);
-        this.Rider1 = new RiderCharacter(this,riderBitmap1,64,64);
+        Bitmap chibiBitmap1 = BitmapFactory.decodeResource(this.getResources(),R.drawable.riderzz2);
+        this.chibi1 = new RiderCharacter(this,chibiBitmap1,64,64);
 
         this.gameThread = new GameThread(this,holder);
         this.gameThread.setRunning(true);
