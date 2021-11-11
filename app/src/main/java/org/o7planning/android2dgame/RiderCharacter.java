@@ -9,7 +9,7 @@ public class RiderCharacter extends GameObject {
     private static final int ROW_TOP_TO_BOTTOM = 0;
     private static final int ROW_RIGHT_TO_LEFT = 1;
     private static final int ROW_LEFT_TO_RIGHT = 2;
-    private static final int ROW_BOTTOM_TO_TOP = 3;
+    private static final int ROW_BOTTOM_TO_TOP = 4;
 
     // Row index of Image are being used.
     private int rowUsing = ROW_LEFT_TO_RIGHT;
@@ -96,7 +96,7 @@ public class RiderCharacter extends GameObject {
 
         // When the game's character touches the edge of the screen, then change direction
 
-        /*if(this.x < 0 )  {
+        if(this.x < 0 )  {
             this.x = 0;
             this.movingVectorX = - this.movingVectorX;
         } else if(this.x > this.gameSurface.getWidth() -width)  {
@@ -110,7 +110,7 @@ public class RiderCharacter extends GameObject {
         } else if(this.y > this.gameSurface.getHeight()- height)  {
             this.y= this.gameSurface.getHeight()- height;
             this.movingVectorY = - this.movingVectorY ;
-        }*/
+        }
 
         // rowUsing
         if( movingVectorX > 0 )  {

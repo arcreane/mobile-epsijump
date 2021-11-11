@@ -28,6 +28,9 @@ public abstract class GameObject {
         this.x= x;
         this.y= y;
 
+
+        //this.WIDTH = 615;
+        //this.HEIGHT = 875;
         this.WIDTH = image.getWidth();
         this.HEIGHT = image.getHeight();
 
