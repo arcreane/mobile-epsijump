@@ -2,6 +2,7 @@ package org.o7planning.android2dgame;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 
 public class RiderCharacter extends GameObject {
 
@@ -21,9 +22,9 @@ public class RiderCharacter extends GameObject {
     private Bitmap[] bottomToTops;
 
     // Velocity of game character (pixel/millisecond)
-    public static final float VELOCITY = 0.1f;
+    public static final float VELOCITY = 0.0f;
 
-    private int movingVectorX = 10;
+    private int movingVectorX = 1;
     private int movingVectorY = 0;
 
     private long lastDrawNanoTime =-1;
@@ -31,7 +32,7 @@ public class RiderCharacter extends GameObject {
     private GameSurface gameSurface;
 
     public RiderCharacter(GameSurface gameSurface, Bitmap image, int x, int y) {
-        super(image, 4, 4, x, y);
+        super(image, 16, 11, x, y);
 
         this.gameSurface= gameSurface;
 
@@ -40,11 +41,11 @@ public class RiderCharacter extends GameObject {
         this.leftToRights = new Bitmap[colCount]; // 3
         this.bottomToTops = new Bitmap[colCount]; // 3
 
-        for(int col = 0; col< this.colCount; col++ ) {
-            this.topToBottoms[col] = this.createSubImageAt(ROW_TOP_TO_BOTTOM, col);
+        for(int col = 1; col< 6; col++ ) {
+            //this.topToBottoms[col] = this.createSubImageAt(ROW_TOP_TO_BOTTOM, col);
             this.rightToLefts[col]  = this.createSubImageAt(ROW_RIGHT_TO_LEFT, col);
             this.leftToRights[col] = this.createSubImageAt(ROW_LEFT_TO_RIGHT, col);
-            this.bottomToTops[col]  = this.createSubImageAt(ROW_BOTTOM_TO_TOP, col);
+            //this.bottomToTops[col]  = this.createSubImageAt(ROW_BOTTOM_TO_TOP, col);
         }
     }
 
@@ -95,7 +96,7 @@ public class RiderCharacter extends GameObject {
 
         // When the game's character touches the edge of the screen, then change direction
 
-        if(this.x < 0 )  {
+        /*if(this.x < 0 )  {
             this.x = 0;
             this.movingVectorX = - this.movingVectorX;
         } else if(this.x > this.gameSurface.getWidth() -width)  {
@@ -109,7 +110,7 @@ public class RiderCharacter extends GameObject {
         } else if(this.y > this.gameSurface.getHeight()- height)  {
             this.y= this.gameSurface.getHeight()- height;
             this.movingVectorY = - this.movingVectorY ;
-        }
+        }*/
 
         // rowUsing
         if( movingVectorX > 0 )  {
@@ -133,6 +134,7 @@ public class RiderCharacter extends GameObject {
 
     public void draw(Canvas canvas)  {
         Bitmap bitmap = this.getCurrentMoveBitmap();
+        canvas.drawColor(Color.WHITE);
         canvas.drawBitmap(bitmap,x, y, null);
         // Last draw time.
         this.lastDrawNanoTime= System.nanoTime();

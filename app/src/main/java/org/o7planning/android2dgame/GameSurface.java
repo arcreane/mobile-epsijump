@@ -36,8 +36,8 @@ public class GameSurface extends SurfaceView implements SurfaceHolder.Callback {
     // Implements method of SurfaceHolder.Callback
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        Bitmap chibiBitmap1 = BitmapFactory.decodeResource(this.getResources(),R.drawable.riderzz2);
-        this.chibi1 = new RiderCharacter(this,chibiBitmap1,64,64);
+        Bitmap chibiBitmap1 = BitmapFactory.decodeResource(this.getResources(),R.drawable.batman);
+        this.chibi1 = new RiderCharacter(this,chibiBitmap1,42,38);
 
         this.gameThread = new GameThread(this,holder);
         this.gameThread.setRunning(true);
